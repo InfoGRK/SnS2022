@@ -14,7 +14,6 @@
 #             absolutely no warranty. User discretion is advised.                    #
 ######################################################################################
 
-
 ### CLEAR WORKSPACE ###
 rm(list = ls())
 gc()
