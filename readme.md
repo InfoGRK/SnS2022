@@ -13,13 +13,13 @@ Konsentrasi CO2 dan CH4 di atmosfer dipengaruhi oleh berapa besar emisi gas ters
 Kajian ini berfokus pada pengestimasian besarnya source dan sink karbon pada skala nasional, dengan menggunakan data dan informasi terakhir yang tersedia. Estimasi ini dikaji dengan memperhatikan perbedaan tata guna lahan (landuse). Hal ini dilakukan untuk mengetahui dampak dan/atau pengaruh dari jenis tutupan lahan pada suatu wilayah terhadap emisi karbon.
 
 Dalam pelaksanaan kegiatan ini, setidaknya ada empat tahapan yang dilakukan sehingga target sasaran yang ingin dicapai dapat terpenuhi. Tahapan-tahapan tersebut antara lain:
-_Sosialisasi dan pematangan konsep_
+1. _Sosialisasi dan pematangan konsep_
 Tahapan ini merupakan awal dari seluruh rangkaian kajian, meliputi pemberian informasi mengenai latar belakang, tujuan, metode, dan hasil yang diharapkan - sekaligus memberikan kesamaan persepsi dalam melakukan tahapan-tahapan kajian selanjutnya;
-_Pengumpulan dan pra-pengolahan data_
+2. _Pengumpulan dan pra-pengolahan data_
 Dalam tahapan ini, pengunduhan dan pra-pengolahan data asli yang telah diinformasikan pada Tabel 1 dilakukan. Pra-pengolahan meliputi penyelarasan domain data (Indonesia: 6° LU, 11° LS; 95° BT, 141° BT) dan upscaling/downscaling data;
-_Pengolahan dan analisis data_
+3. _Pengolahan dan analisis data_
 Tahapan ini dilakukan dengan melakukan pengolahan secara empirik dan analisis spatio-temporal terhadap seluruh data untuk dapat dijadikan informasi yang digunakan untuk mencapai target sasaran yang ingin dicapai;
-_Penyusunan laporan kajian dan manuskrip publikasi_
+4. _Penyusunan laporan kajian dan manuskrip publikasi_
 Akhir dari rangkaian kajian ini adalah dengan penyusunan laporan yang merupakan dokumentasi teknis dan non-teknis dari seluruh tahapan. Dalam prosesnya, pengembangan draft manuskrip untuk publikasi ilmiah juga dilakukan.
 
 ## Output
