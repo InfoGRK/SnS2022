@@ -31,10 +31,6 @@ library(sf)
 library(tidyverse)
 library(gstat)
 library(readr)
-library(fields)
-library(mgcv)
-library(automap)
-library(interp)
 
 ### SET .nc FILES TO WORK WITH ###
 setwd("~/Documents/Satellite/OCO-2/202111/")  # adjust to the right directory
@@ -156,4 +152,4 @@ time.spent <- paste("Work has been completed in", how.many,"minutes")
 print(time.spent)
 
 
-### END OF LINE ###
+### END OF LINES ###
