@@ -4,4 +4,4 @@
 ## Akses melalui Google Drive
 Format data: NetCDF
 
-Klik link berikut untuk mengakses file: [Link](https://drive.google.com/drive/u/1/folders/1ZI-uYKJd2JDuLNyA0IqaUNRvl6Po24HA)
+Klik link berikut untuk mengakses file: [Link](https://drive.google.com/drive/u/2/folders/1jYDlFq7vpQLqPOYmCwWr2KZLWAzHCGfl)
