@@ -31,6 +31,7 @@ library(sf)
 library(tidyverse)
 library(gstat)
 library(readr)
+library(raster)
 
 ### SET .nc FILES TO WORK WITH ###
 setwd("~/Documents/Satellite/OCO-2/202111/")  # adjust to the right directory
