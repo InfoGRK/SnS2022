@@ -31,10 +31,11 @@ library(readr)
 library(raster)
 
 ### SET .nc FILES TO WORK WITH ###
-setwd(file.path(getwd(),"localdata"))  # adjust to the right directory
+#setwd(file.path("C:\WORKING\SnS2022\SnS2022-1","localdata"))  # adjust to the right directory <- not used at all
 ffile <- file.choose() # select an .nc file for extracting name
 fn01 <- basename(ffile)
 fpath <- dirname(ffile)
+setwd(fpath) #best practice, setwd after selecting file
 
 ### COLLECT .nc FILES ON A LIST ###
 fn <- list.files(path = fpath, 
@@ -47,9 +48,10 @@ print(paste("There are ",length(fn), " netcdf file(s) in this directory."))
 ### SOME NAMING ###
 fvar <- substr(fn01, start = 8, stop = 10)
 fdate <- substr(fn01, start = 12, stop = 15)
-ncname <- paste0(fvar, "_mx_", fdate,"_OCO-2.nc")   # adjust to "OCO-3.nc"
-ncname2 <- paste0(fvar, "_sns_", fdate,"_OCO-2.nc")   # adjust to "OCO-3.nc"
-csvname <- paste0(fvar, "_", fdate,"_OCO-2.csv")  # adjust to "OCO-3.nc"
+#adjusted export directory
+ncname <- file.path("C:/WORKING/SnS2022/SnS2022-1/localdata/OCO/results","mx",paste0(fvar, "_mx_", fdate,"_OCO-2.nc"))   # adjust to "OCO-3.nc"
+ncname2 <- file.path("C:/WORKING/SnS2022/SnS2022-1/localdata/OCO/results","sns",paste0(fvar, "_sns_", fdate,"_OCO-2.nc"))   # adjust to "OCO-3.nc"
+csvname <- file.path("C:/WORKING/SnS2022/SnS2022-1/localdata/OCO/results","csv",paste0(fvar, "_", fdate,"_OCO-2.csv"))  # adjust to "OCO-3.nc"
 
 ### CONSTRUCT A DATAFRAME FROM .nc FILES ###
 co2df <- NULL
@@ -78,7 +80,7 @@ pts_CO2 <- read_csv(csvname,
 print(pts_CO2)
 
 ### CREATE A SPATIAL FILE BASED ON xco2 ###
-sf_CO2 <- st_as_sf(pts_CO2, coords = c("lon", "lat"), 
+sf_CO2 <- st_as_sf(pts_CO2, coords = c("lon", "lat"),
                    crs = "+proj=longlat +datum=WGS84 +no_defs")
 
 ### CREATE A RASTER TEMPLATE FILE ###
@@ -109,14 +111,20 @@ fit_IDW_co2 <- gstat(
   data = as(sf_CO2, "Spatial"),
   nmax = 10, nmin = 3,
   set = list(idp = 2.0)) # inverse distance power
+# reset the CRS
+proj4string(fit_IDW_co2$data$var1$data) = ""
+proj4string(fit_IDW_co2$data$var1$data) = crs_raster_format
 
 fit_IDW_aco2 <- gstat( 
   formula = aco2 ~ 1,
   data = as(sf_CO2, "Spatial"),
   nmax = 10, nmin = 3,
   set = list(idp = 2.0)) # inverse distance power
+# again, reset the CRS
+proj4string(fit_IDW_aco2$data$var1$data) = ""
+proj4string(fit_IDW_aco2$data$var1$data) = crs_raster_format
 
-# Interpolate data using the formula
+# Interpolate data using the formula --> This usually took a long time
 interp_IDW_co2 <- interpolate(grd_template_raster, fit_IDW_co2)
 interp_IDW_aco2 <- interpolate(grd_template_raster, fit_IDW_aco2)
 
