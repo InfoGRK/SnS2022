@@ -44,7 +44,6 @@ fn <- list.files(path = fpath,
                  recursive = FALSE)
 print(paste("There are ",length(fn), " netcdf file(s) in this directory."))
 
-
 ### SOME NAMING ###
 fvar <- substr(fn01, start = 8, stop = 10)
 fdate <- substr(fn01, start = 12, stop = 15)
@@ -151,7 +150,6 @@ writeRaster(aco2rst,
             yname = "latitude", 
             zname = "time",
             zunit = "day") # Timestep and time origin are not specified
-
 
 ### PRINT ELAPSED TIME ###
 stop.clock <- Sys.time()
