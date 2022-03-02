@@ -1,1 +1,2 @@
-./localdata
+# I stored my data in a folder called localdata in the main folder, so i wanted to exclude it from the git
+localdata
