@@ -75,7 +75,6 @@ pts_CO2 <- read_csv(csvname,
                                      lon = col_double(), lat = col_double())
 ) %>% 
   dplyr::select(lon, lat, co2, aco2)
-
 print(pts_CO2)
 
 ### CREATE A SPATIAL FILE BASED ON xco2 ###
