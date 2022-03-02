@@ -31,7 +31,7 @@ library(readr)
 library(raster)
 
 ### SET .nc FILES TO WORK WITH ###
-setwd("~/Documents/Satellite/OCO-2/202111/")  # adjust to the right directory
+setwd(file.path(getwd(),"localdata"))  # adjust to the right directory
 ffile <- file.choose() # select an .nc file for extracting name
 fn01 <- basename(ffile)
 fpath <- dirname(ffile)
