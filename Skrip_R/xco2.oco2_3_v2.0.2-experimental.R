@@ -16,12 +16,33 @@
 #             absolutely no warranty. User discretion is advised.                    #
 ######################################################################################
 
-
 ### CLEAR WORKSPACE ###
 rm(list = ls())
-gc()
 start.clock <- Sys.time()
 
+
+### INCLUDE LIBRARIES ###
+# library(ncdf4)
+# library(sf)
+# library(tidyverse)
+# library(gstat)
+# library(readr)
+# library(raster)
+library(doParallel)
+
+### SET .nc FILES TO WORK WITH ###
+setwd("C:/WORKING/SnS2022/SnS2022-1/localdata/OCO")
+list_file <- NULL
+list_file[1] <- file.choose() # select an .nc file for extracting name
+list_file[2] <- file.choose() # select an .nc file for extracting name
+list_file[3] <- file.choose() # select an .nc file for extracting name
+list_file[4] <- file.choose() # select an .nc file for extracting name
+list_file[5] <- file.choose() # select an .nc file for extracting name
+list_file[6] <- file.choose() # select an .nc file for extracting name -> auto_run_xco(list_file_1)
+
+### LET'S MAKE THE WHOLE CODE INTO A GIANT FUNCTION
+auto_run_xco <- function(ffile){
+  
 ### INCLUDE LIBRARIES ###
 library(ncdf4)
 library(sf)
@@ -29,12 +50,12 @@ library(tidyverse)
 library(gstat)
 library(readr)
 library(raster)
+  
+gc()
 
-### SET .nc FILES TO WORK WITH ###
-#setwd(file.path("C:\WORKING\SnS2022\SnS2022-1","localdata"))  # adjust to the right directory <- not used at all
-ffile <- file.choose() # select an .nc file for extracting name
 fn01 <- basename(ffile)
 fpath <- dirname(ffile)
+print(ffile)
 setwd(fpath) #best practice, setwd after selecting file
 
 ### COLLECT .nc FILES ON A LIST ###
@@ -125,7 +146,7 @@ fit_IDW_aco2 <- gstat(
 proj4string(fit_IDW_aco2$data$var1$data) = ""
 proj4string(fit_IDW_aco2$data$var1$data) = crs_raster_format
 
-# Interpolate data using the formula --> This usually took a long time (~25 min)
+# Interpolate data using the formula --> This usually take a long time (~25-40 min)
 interp_IDW_co2 <- interpolate(grd_template_raster, fit_IDW_co2)
 interp_IDW_aco2 <- interpolate(grd_template_raster, fit_IDW_aco2)
 
@@ -158,12 +179,20 @@ writeRaster(aco2rst,
             yname = "latitude", 
             zname = "time",
             zunit = "day") # Timestep and time origin are not specified
+}
+
+### RUNNING THE FUNCTIONS
+no_cores <- detectCores() - 2
+cl <- makeCluster(no_cores)  
+registerDoParallel(cl)  
+
+foreach(i=seq_along(list_file)) %dopar% auto_run_xco(list_file[i])
+stopCluster(cl)  
 
 ### PRINT ELAPSED TIME ###
 stop.clock <- Sys.time()
 how.many <- round(as.numeric(difftime(stop.clock, start.clock, units = "mins")), 2)
 time.spent <- paste("Work has been completed in", how.many,"minutes")
 print(time.spent)
-
 
 ### END OF LINES ###
