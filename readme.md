@@ -6,6 +6,8 @@ Repository untuk penyimpanan file-file penting saja
 Resource:
 [Dokumentasi Proses](https://docs.google.com/document/d/1sYNEl5y2HcXz9y4PkrofNy4i5WdlXuQxtKMS2QLUo90/edit?usp=sharing)
 
+[Rekaman Training](https://youtube.com/playlist?list=PLMcOv1A30s-adLx1kdDjzHb1CzEQO6EXk)
+
 
 ### Motivasi
 Penyebab utama dari fenomena perubahan iklim yang menyebabkan adanya kejadian ekstrim seperti peningkatan temperatur udara global, pencairan es di kutub, peningkatan ketinggian permukaan laut, dan sebagainya adalah kenaikan konsentrasi gas rumah kaca di atmosfer. Gas rumah kaca (GRK), utamanya CO2 dan CH4, menyebabkan terjadinya efek rumah kaca yang memberikan dampak terhadap ‘terkurungnya’ energi terestrial di atmosfer dan laut. Gas CO2 dan CH4 merupakan gas yang setelah diemisikan dapat bertahan dalam periode yang lama (CO2 > 100 tahun, CH4 8-12 tahun) sehingga dapat menyebar ke berbagai lokasi di permukaan bumi.
