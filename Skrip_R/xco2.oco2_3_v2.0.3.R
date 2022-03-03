@@ -5,7 +5,7 @@
 #     https://disc.gsfc.nasa.gov/datasets/OCO2_L2_Lite_FP_10r/summary (OCO-2)        #
 #     https://disc.gsfc.nasa.gov/datasets/OCO3_L2_Lite_FP_10r/summary (OCO-3)        #
 # This script transforms a mosaic consisting of a number of satellite observations   #
-#     in one month to a dataframe.                                                   #
+#     to a dataframe.                                                                #
 # The script interpolates points into raster by applying appropriate interpolation   #
 #     method for the Indonesian region.                                              #
 # Refer to below comments for more detailed instructions/explanations.               #
