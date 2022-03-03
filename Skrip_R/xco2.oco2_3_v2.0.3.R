@@ -174,8 +174,6 @@ interp_IDW_aco2 <- interpolate(grd_template_raster, fit_IDW_aco2)
 
 
 ### CREATE A NETCDF OUTPUT FILE BASED ON THE INTERPOLATED VALUES ###
-#co2_median <- cellStats(interp_IDW, median)
-#co2rst <- brick(interp_IDW)
 co2rst <- brick(interp_IDW_co2)
 aco2rst <- brick(interp_IDW_aco2)
 #co2sns <- co2rst - co2_median
