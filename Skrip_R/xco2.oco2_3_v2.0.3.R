@@ -22,6 +22,7 @@ rm(list = ls())
 gc()
 start.clock <- Sys.time()
 
+
 ### INCLUDE LIBRARIES ###
 library(ncdf4)
 library(sf)
@@ -29,6 +30,7 @@ library(tidyverse)
 library(gstat)
 library(readr)
 library(raster)
+
 
 ### COLLECT .nc FILES ON A LIST ###
 setwd("~/Documents/Satellite/OCO-2/")  # adjust to the right directory
@@ -97,6 +99,7 @@ if (type == "monthly"){
   csvname <- paste0("CO2_all_2015-2018.csv")
 }
 
+
 ### CONSTRUCT A DATAFRAME FROM .nc FILES ###
 co2df <- NULL
 for (i in seq_along(fn)) {
@@ -113,6 +116,7 @@ for (i in seq_along(fn)) {
   nc_close(nc)
 }
 
+
 ### CREATE A .csv FILE TO BUILD THE RASTER FILE ###
 co2df_sub <- subset(co2df, lat >= -11 & lat <= 6 & lon >= 95 & lon <= 141)
 write.csv(co2df_sub, file = csvname, row.names = FALSE, quote = TRUE, na = "NA")
@@ -124,9 +128,11 @@ pts_CO2 <- read_csv(csvname,
 
 print(pts_CO2)
 
+
 ### CREATE A SPATIAL FILE BASED ON xco2 ###
 sf_CO2 <- st_as_sf(pts_CO2, coords = c("lon", "lat"), 
                    crs = "+proj=longlat +datum=WGS84 +no_defs")
+
 
 ### CREATE A RASTER TEMPLATE FILE ###
 # Boundary box for max-min lat and lon
@@ -149,6 +155,7 @@ grd_template_raster <- grd_template %>%
   raster::rasterFromXYZ( 
     crs = crs_raster_format)
 
+
 ### INTERPOLATE POINT DATA TO RASTER TEMPLATE ###
 # Build a formula to fit raster using Inverse Distance Weighted Method
 fit_IDW_co2 <- gstat( 
@@ -156,16 +163,15 @@ fit_IDW_co2 <- gstat(
   data = as(sf_CO2, "Spatial"),
   nmax = 10, nmin = 3,
   set = list(idp = 2.0)) # inverse distance power
-
 fit_IDW_aco2 <- gstat( 
   formula = aco2 ~ 1,
   data = as(sf_CO2, "Spatial"),
   nmax = 10, nmin = 3,
   set = list(idp = 2.0)) # inverse distance power
-
 # Interpolate data using the formula
 interp_IDW_co2 <- interpolate(grd_template_raster, fit_IDW_co2)
 interp_IDW_aco2 <- interpolate(grd_template_raster, fit_IDW_aco2)
+
 
 ### CREATE A NETCDF OUTPUT FILE BASED ON THE INTERPOLATED VALUES ###
 #co2_median <- cellStats(interp_IDW, median)
