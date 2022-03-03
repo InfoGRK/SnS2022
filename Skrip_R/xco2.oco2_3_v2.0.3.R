@@ -11,7 +11,7 @@
 # Refer to below comments for more detailed instructions/explanations.               #
 # Created by Alberth Nahas on 2021-12-12 03:00 pm WIB.                               #
 # Email: alberth.nahas@bmkg.go.id                                                    #
-# Version 2.0.3 (2022-03-02)                                                         #
+# Version 2.0.3 (2022-03-03)                                                         #
 # Disclaimer: This is a free-to-share, free-to-use script. That said, it comes with  #
 #             absolutely no warranty. User discretion is advised.                    #
 ######################################################################################
