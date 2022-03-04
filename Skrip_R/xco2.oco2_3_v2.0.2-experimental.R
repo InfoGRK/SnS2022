@@ -33,12 +33,9 @@ library(doParallel)
 ### SET .nc FILES TO WORK WITH ###
 setwd("C:/WORKING/SnS2022/SnS2022-1/localdata/OCO")
 list_file <- NULL
-list_file[1] <- file.choose() # select an .nc file for extracting name
-list_file[2] <- file.choose() # select an .nc file for extracting name
-list_file[3] <- file.choose() # select an .nc file for extracting name
-list_file[4] <- file.choose() # select an .nc file for extracting name
-list_file[5] <- file.choose() # select an .nc file for extracting name
-list_file[6] <- file.choose() # select an .nc file for extracting name -> auto_run_xco(list_file_1)
+nfiles = 6 # How much folders we want to process
+for(i in seq(nfiles)){
+list_file[i] <- file.choose() } # select an .nc file for extracting name
 
 ### LET'S MAKE THE WHOLE CODE INTO A GIANT FUNCTION
 auto_run_xco <- function(ffile){
@@ -182,7 +179,7 @@ writeRaster(aco2rst,
 }
 
 ### RUNNING THE FUNCTIONS
-no_cores <- detectCores() - 2
+no_cores <- detectCores() - 3 # how much cores we want to use - save some for essential windows processes
 cl <- makeCluster(no_cores)  
 registerDoParallel(cl)  
 
