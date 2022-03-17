@@ -76,15 +76,15 @@ if (type == "monthly"){
     ncname <- paste0("CO2_mx_seasonal_DJF_2015-2018.nc")
     ncname2 <- paste0("CO2_sns_seasonal_DJF_2015-2018.nc")
     csvname <- paste0("CO2_seasonal_DJF_2015-2018.csv")
-  } else if (month[1] == "3"){
+  } else if (month[1] == "03"){
     ncname <- paste0("CO2_mx_seasonal_MAM_2015-2018.nc")
     ncname2 <- paste0("CO2_sns_seasonal_MAM_2015-2018.nc")
     csvname <- paste0("CO2_seasonal_MAM_2015-2018.csv")
-  } else if (month[1] == "6"){
+  } else if (month[1] == "06"){
     ncname <- paste0("CO2_mx_seasonal_JJA_2015-2018.nc")
     ncname2 <- paste0("CO2_sns_seasonal_JJA_2015-2018.nc")
     csvname <- paste0("CO2_seasonal_JJA_2015-2018.csv")
-  } else if (month[1] == "9"){
+  } else if (month[1] == "09"){
     ncname <- paste0("CO2_mx_seasonal_SON_2015-2018.nc")
     ncname2 <- paste0("CO2_sns_seasonal_SON_2015-2018.nc")
     csvname <- paste0("CO2_seasonal_SON_2015-2018.csv")
