@@ -1,4 +1,4 @@
-# Sumber data Land Cover:  
+# Sumber data OCO-2:  
 [Link file sumber](https://disc.gsfc.nasa.gov/datasets/OCO2_L2_Lite_FP_10r/summary (OCO-2))
 
 ## Akses melalui Google Drive
