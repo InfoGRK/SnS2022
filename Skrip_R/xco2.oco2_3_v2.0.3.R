@@ -40,7 +40,7 @@ type <- "monthly"
 year <- c("15", "16", "17", "18")
 month <- c("03")
 # For seasonal, month should be written following the appropriate season
-#    DJA is c("12", "01", "02")
+#    DJF is c("12", "01", "02")
 #    MAM is c("03", "04", "05")
 #    JJA is c("06", "07", "08")
 #    SON is c("09", "10", "11")
