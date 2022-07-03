@@ -68,7 +68,7 @@ for (i in pattern){
                  recursive = TRUE)
   fn <- do.call(c, list(flist, fn))
 }
-print(paste("There are ",length(fn), " netcdf file(s) in this directory."))
+print(paste("There are ",length(fn), " netcdf files in this directory."))
 
 
 ### SOME NAMING ###
