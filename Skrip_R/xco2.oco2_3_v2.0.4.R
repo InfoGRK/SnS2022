@@ -189,25 +189,25 @@ aco2rst <- brick(interp_IDW_aco2)
 writeRaster(co2rst, 
             file = ncname, 
             overwrite = TRUE, 
-            format = "CDF", # A netcdf format
+            format = "CDF",
             varname = "co2", 
             varunit = "ppm", 
             longname = "CO2 mixing ratio",
             xname = "longitude",
             yname = "latitude", 
             zname = "time",
-            zunit = "day") # Timestep and time origin are not specified
+            zunit = "day")
 writeRaster(aco2rst, 
             file = ncname2, 
             overwrite = TRUE, 
-            format = "CDF", # A netcdf format
+            format = "CDF",
             varname = "co2_diff", 
             varunit = "ppm", 
             longname = "Difference of CO2 mixing ratio from median",
             xname = "longitude",
             yname = "latitude", 
             zname = "time",
-            zunit = "day") # Timestep and time origin are not specified
+            zunit = "day")
 
 print(paste("Done creating netcdf files as the output."))
 
