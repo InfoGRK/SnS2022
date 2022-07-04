@@ -1,5 +1,5 @@
-## ***SWAKELOLA ESTIMASI SOURCE DAN SINK EMISI GAS RUMAH KACA BERBASIS KARBON (CO<SUB>2</SUB> DAN CH<SUB>4</SUB>) DI INDONESIA***
-### Bidang Informasi Kualitas Udara
+## ***ESTIMASI SOURCE DAN SINK EMISI GAS RUMAH KACA BERBASIS KARBON DI INDONESIA***
+### Bidang Informasi Kualitas Udara BMKG
 
 Repository untuk penyimpanan file-file penting saja
 
